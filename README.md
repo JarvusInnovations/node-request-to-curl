@@ -5,7 +5,7 @@ debugger.
 ## Features
 * Based from the WebKit code that Chrome uses in its debugger to generate curl commands
 * Hooks into Node.js at a low-level and is compatible with helper libraries (tested with [request](https://github.com/request/request))
-* Parses the outgoing request to get what was sent over the wire
+* Parses the outgoing request to get what was sent over the wire (compatible with streams)
 
 ## Use in production
 All outgoing HTTP requests are parsed using Node's own HTTP library in a manner similar to how an incoming request is
@@ -71,3 +71,16 @@ req.end();
 ```shell
 curl 'http://www.google.com/upload' -H 'content-type: application/x-www-form-urlencoded' --data 'msg=Hello%20World!' --compressed
 ```
+
+## Alternatives
+[request-as-curl](https://www.npmjs.com/package/request-as-curl) is a similar module, however, it does not parse the
+request over the wire and is not compatible with streams. ``request-as-curl`` requires you to pass in your request body
+(which should be doable in most cases) and write code for each request. Global error handling is complicated by needing
+to keep the request body in scope.
+
+``request-to-curl`` favors over-the-wire accuracy for all outgoing requests.
+
+``request-as-curl`` does not need to parse outgoing requests over the wire and is ideal if you want to debug a handful
+of requests and do not use streams. ``request-to-curl`` is what you want if you want to be log the curl command to
+reproduce any failed outgoing HTTP requests anywhere in your app (which is very helpful for working with third party
+HTTP APIs).
