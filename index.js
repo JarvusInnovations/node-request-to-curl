@@ -3,7 +3,7 @@
 var os = require('os'),
     http = require('http'),
     url = require('url'),
-    HTTPParser = process.binding('http_parser').HTTPParser;
+    HTTPParser = require('http-parser-js').HTTPParser;
 
 /*
  * Copyright (C) 2007, 2008 Apple Inc.  All rights reserved.

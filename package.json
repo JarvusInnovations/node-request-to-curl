@@ -1,6 +1,6 @@
 {
   "name": "request-to-curl",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Adds a .toCurl() method to http.ClientRequest to generate output equivalant to the 'Copy as Curl' option in the WebKit debugger",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/JarvusInnovations/node-request-to-curl/issues"
   },
-  "homepage": "https://github.com/JarvusInnovations/node-request-to-curl#readme"
+  "homepage": "https://github.com/JarvusInnovations/node-request-to-curl#readme",
+  "dependencies": {
+    "http-parser-js": "^0.5.1"
+  }
 }
