@@ -1,14 +1,14 @@
 {
   "name": "request-to-curl",
-  "version": "0.1.2",
-  "description": "Adds a .toCurl() method to http.ClientRequest to generate output equivalant to the 'Copy as Curl' option in the WebKit debugger",
+  "version": "0.1.3",
+  "description": "Adds a .toCurl() method to http.ClientRequest to generate output equivalent to the 'Copy as Curl' option in the WebKit debugger",
   "main": "index.js",
   "scripts": {
     "test": "mocha --expose-gc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JarvusInnovations/node-request-to-curl.git"
+    "url": "git+https://github.com/jmealo/node-request-to-curl.git"
   },
   "keywords": [
     "curl",
@@ -22,9 +22,9 @@
   "author": "Jeffrey Mealo <jeffreymealo@gmail.com> (http://jeffreymealo.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JarvusInnovations/node-request-to-curl/issues"
+    "url": "https://github.com/jmealo/node-request-to-curl/issues"
   },
-  "homepage": "https://github.com/JarvusInnovations/node-request-to-curl#readme",
+  "homepage": "https://github.com/jmealo/node-request-to-curl#readme",
   "dependencies": {
     "http-parser-js": "^0.5.1"
   },
