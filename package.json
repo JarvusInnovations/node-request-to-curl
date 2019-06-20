@@ -4,7 +4,7 @@
   "description": "Adds a .toCurl() method to http.ClientRequest to generate output equivalant to the 'Copy as Curl' option in the WebKit debugger",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --expose-gc"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,10 @@
   "homepage": "https://github.com/JarvusInnovations/node-request-to-curl#readme",
   "dependencies": {
     "http-parser-js": "^0.5.1"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.5",
+    "mocha": "^6.1.4",
+    "request": "^2.88.0"
   }
 }
