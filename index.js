@@ -50,7 +50,7 @@ function parseRequestBody(request) {
     };
 
     if (typeof request === 'string') {
-        request = Buffer(request);
+        request = Buffer.from(request);
     }
 
     parser.execute(request, 0, request.length);
