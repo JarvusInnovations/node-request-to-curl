@@ -162,7 +162,7 @@ http.ClientRequest.prototype.onSocket = function onSocket(socket) {
         return write.apply(this, arguments);
     };
 
-    socket.on('close', function () {
+    socket.once('close', function () {
         self.body = parseRequestBody(self._requestBody);
     });
 
