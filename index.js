@@ -3,7 +3,7 @@
 var os = require('os'),
     http = require('http'),
     url = require('url'),
-    HTTPParser = process.binding('http_parser').HTTPParser;
+    HTTPParser = require('http-parser-js').HTTPParser;
 
 /*
  * Copyright (C) 2007, 2008 Apple Inc.  All rights reserved.
@@ -50,7 +50,7 @@ function parseRequestBody(request) {
     };
 
     if (typeof request === 'string') {
-        request = Buffer(request);
+        request = Buffer.from(request);
     }
 
     parser.execute(request, 0, request.length);
@@ -162,7 +162,7 @@ http.ClientRequest.prototype.onSocket = function onSocket(socket) {
         return write.apply(this, arguments);
     };
 
-    socket.on('close', function () {
+    socket.once('close', function () {
         self.body = parseRequestBody(self._requestBody);
     });
 
