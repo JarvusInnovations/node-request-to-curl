@@ -1,6 +1,6 @@
 {
   "name": "request-to-curl",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Adds a .toCurl() method to http.ClientRequest to generate output equivalent to the 'Copy as Curl' option in the WebKit debugger",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "bluebird": "^3.5.5",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.0",
     "request": "^2.88.0"
   }
 }
