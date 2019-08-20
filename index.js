@@ -97,7 +97,7 @@ function toCurl(platform) {
         escapeString = platform === 'win' ? escapeStringWindows : escapeStringPosix,
         requestMethod = 'GET',
         data = [],
-        requestHeaders = this._headers,
+        requestHeaders = this.getHeaders,
         requestBody = parseRequestBody(this._requestBody).toString(),
         contentType = requestHeaders['content-type'];
 
