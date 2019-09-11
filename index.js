@@ -143,7 +143,7 @@ function toCurl(platform) {
     return command.join(' ');
 }
 
-http.ClientRequest.prototype._onSocket = http.ClientRequest.prototype.onSocket;
+const originalOnSocket = http.ClientRequest.prototype.onSocket;
 
 http.ClientRequest.prototype.onSocket = function onSocket(socket) {
     var self = this,
@@ -166,7 +166,7 @@ http.ClientRequest.prototype.onSocket = function onSocket(socket) {
         self.body = parseRequestBody(self._requestBody);
     });
 
-    this._onSocket(socket);
+    originalOnSocket.call(this, socket);
 };
 
 http.ClientRequest.prototype.toCurl = toCurl;
