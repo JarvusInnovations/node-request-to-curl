@@ -1,6 +1,6 @@
 {
   "name": "request-to-curl",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Adds a .toCurl() method to http.ClientRequest to generate output equivalent to the 'Copy as Curl' option in the WebKit debugger",
   "main": "index.js",
   "scripts": {
