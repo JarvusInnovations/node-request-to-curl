@@ -145,7 +145,7 @@ function toCurl(platform) {
 
 const originalOnSocket = http.ClientRequest.prototype.onSocket;
 
-http.ClientRequest.prototype.onSocket = function onSocket(socket) {
+function onSocket(socket) {
     var self = this,
         ondata = socket.ondata,
         write = socket.write;
@@ -169,4 +169,7 @@ http.ClientRequest.prototype.onSocket = function onSocket(socket) {
     originalOnSocket.call(this, socket);
 };
 
-http.ClientRequest.prototype.toCurl = toCurl;
+if(!http.ClientRequest.prototype.toCurl) {
+  http.ClientRequest.prototype.onSocket = onSocket;
+  http.ClientRequest.prototype.toCurl = toCurl;
+}
