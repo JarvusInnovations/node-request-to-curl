@@ -72,6 +72,13 @@ req.end();
 curl 'http://www.google.com/upload' -H 'content-type: application/x-www-form-urlencoded' --data 'msg=Hello%20World!' --compressed
 ```
 
+### Getting the request body
+
+Note that in order to get the body in the curl you need to wait for the body to be transfered. Running `.toCurl()` on a `req` object synchronously after it's been returned will return an incomplete curl command. If you want to have the curl text without waiting for the response, try running `.toCurl()` in the `finish` event on the request.
+```js
+req.on('finish', () => { console.log(req.toCurl()) })
+```
+
 ## Alternatives
 [request-as-curl](https://www.npmjs.com/package/request-as-curl) is a similar module, however, it does not parse the
 request over the wire and is not compatible with streams. ``request-as-curl`` requires you to pass in your request body
